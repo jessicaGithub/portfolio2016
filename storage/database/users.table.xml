@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root><options><autoincrement>1</autoincrement></options><fields><login/><password/><email/><role/><date_registered/><firstname/><lastname/><login/><twitter/><skype/><hash/><about_me/></fields><users><id>1</id><uid>c024892fa9</uid><firstname/><lastname/><twitter/><skype/><about_me/><login>jjeong</login><password>95a5bb2798e9dc5f9a15f9a44a479c19</password><email>himechi90@gmail.com</email><hash>fmfXSsuUAbeu</hash><date_registered>1454462536</date_registered><role>admin</role></users></root>

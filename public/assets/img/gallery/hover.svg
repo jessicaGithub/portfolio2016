@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="tile_overlay" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 330 200" style="enable-background:new 0 0 330 200;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFF15D;}
+</style>
+<polygon id="open" class="st0" points="330,200 0,200 0,80 330,0 "/>
+<rect id="close" y="200" class="st0" width="330" height="0"/>
+</svg>
