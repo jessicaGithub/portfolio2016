@@ -19,30 +19,36 @@
 
 	#gallery {
 	
-	.grid-item {
-		.box-shadow(none);
-		float: none;
-		margin-bottom: 0;
+		.grid-item {
+			.box-shadow(none);
+			float: none;
+			margin-bottom: 0;
 
-		.overlay {
-			height: 200px;
-			background: @jj_yellow;
-			
-			.tile_overlay {
-				display: none;
+			.overlay {
+				height: 200px;
+				background: @jj_yellow;
+				
+				.tile_overlay {
+					display: none;
+				}
+
+				.overlay_content {
+					.opacity(1);
+				}
 			}
+		}
 
-			.overlay_content {
-				.opacity(1);
+		.grid-item--height1 { height: 600px; }
+
+		#gallery_content {
+			padding-top: 60px;
+
+			.swiper-container {
+				.gallery-swiper-button-prev, .gallery-swiper-button-next {
+					display: block;
+				}
 			}
 		}
 	}
-
-	.grid-item--height1 { height: 600px; }
-
-	#gallery_content {
-		padding-top: 0;
-	}
-}
 
 }

@@ -9,10 +9,10 @@ viewBox="0 0 330 200" style="enable-background:new 0 0 330 200;" xml:space="pres
 </svg>
 <div class="container-fluid">
 <div class="row">
-<div class="col-xs-10 col-xs-offset-1 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2" id="gallery_content">
+<div class="col-xs-10 col-xs-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1" id="gallery_content">
 <h1>What I Do</h1><div id="gallery_carousel" class="swiper-container">
-<div class="gallery-swiper-button-prev hidden-md hidden-lg"><i class='glyphicon glyphicon-chevron-left'></i></div>
-<div class="gallery-swiper-button-next hidden-md hidden-lg"><i class='glyphicon glyphicon-chevron-right'></i></div>
+<div class="gallery-swiper-button-prev"><i class='glyphicon glyphicon-chevron-left'></i></div>
+<div class="gallery-swiper-button-next"><i class='glyphicon glyphicon-chevron-right'></i></div>
 <div class="grid swiper-wrapper">
 <div class="grid-item swiper-slide">
 <div class="overlay">
@@ -24,7 +24,15 @@ S490.1,236.19,490.1,280.649z"/>
 </svg>
 <div class="overlay_content">
 <h2>Web<br/>Development</h2>
-<a href="#" class="popup"><i class="glyphicon glyphicon-info-sign"></i></a>
+<a href="#" class="popup" data-toggle="modal" data-target="#galleryModal">
+<i class="glyphicon glyphicon-info-sign"></i>
+<div class="popup_content">
+<p class="hero_url"><?php echo Site::url(); ?>/public/assets/img/about/profile.jpg</p>
+<p class="title">Title</p>
+<p class="description">description</p>
+<p class="preview_url">#</p>
+</div>
+</a>
 <a href="#" class="url"><i class="glyphicon glyphicon-link"></i></a>
 </div>
 </div>
@@ -40,7 +48,15 @@ S490.1,236.19,490.1,280.649z"/>
 </svg>
 <div class="overlay_content">
 <h2>Web<br/>Development</h2>
-<a href="#" class="popup"><i class="glyphicon glyphicon-info-sign"></i></a>
+<a href="#" class="popup" data-toggle="modal" data-target="#galleryModal">
+<i class="glyphicon glyphicon-info-sign"></i>
+<div class="popup_content">
+<p class="hero_url"><?php echo Site::url(); ?>/public/assets/img/about/profile.jpg</p>
+<p class="title">Title 2</p>
+<p class="description">description 2</p>
+<p class="preview_url">#</p>
+</div>
+</a>
 <a href="#" class="url"><i class="glyphicon glyphicon-link"></i></a>
 </div>
 </div>
@@ -56,7 +72,15 @@ S490.1,236.19,490.1,280.649z"/>
 </svg>
 <div class="overlay_content">
 <h2>Web<br/>Development</h2>
-<a href="#" class="popup"><i class="glyphicon glyphicon-info-sign"></i></a>
+<a href="#" class="popup" data-toggle="modal" data-target="#galleryModal">
+<i class="glyphicon glyphicon-info-sign"></i>
+<div class="popup_content">
+<p class="hero_url"><?php echo Site::url(); ?>/public/assets/img/about/profile.jpg</p>
+<p class="title">Title 3</p>
+<p class="description">description 3</p>
+<p class="preview_url">#</p>
+</div>
+</a>
 <a href="#" class="url"><i class="glyphicon glyphicon-link"></i></a>
 </div>
 </div>

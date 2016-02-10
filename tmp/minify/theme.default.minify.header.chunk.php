@@ -53,8 +53,8 @@ viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="pres
 <?php //Users::getPanel(); ?>
 <li class="active" data-menuanchor="da-riddles"><a href="#da-riddles">Riddles</a></li>
 <li data-menuanchor="da-about"><a href="#da-about">About Me</a></li>
-<li data-menuanchor="da-gallery"><a href="#da-gallery">What I Do</a></li>
 <li data-menuanchor="da-contact"><a href="#da-contact">Contact Me</a></li>
+<li data-menuanchor="da-gallery"><a href="#da-gallery">What I Do</a></li>
 </ul>
 </div>
 </div>

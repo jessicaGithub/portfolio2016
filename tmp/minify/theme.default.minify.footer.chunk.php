@@ -19,6 +19,37 @@
 </div>
 </footer>
 </div>
+<div class="gallery_modal_container">
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" id="galleryModal">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">
+<i class="glyphicon glyphicon-remove"></i>
+</span>
+</button>
+<h4 class="modal-title" id="gridSystemModalLabel">Modal title</h4>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="col-md-12">
+<img src="" class="hero" alt="">
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<p class="description"></p>
+</div>
+<div class="col-md-6">
+<a href="" class="btn green_btn preview_btn">Go to Site</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <?php echo Snippet::get('google-analytics'); ?>
 <?php Javascript::add('public/assets/js/vendor.js', 'frontend', 1); ?>
 <?php Javascript::add('public/assets/js/app.js', 'frontend', 2); ?>

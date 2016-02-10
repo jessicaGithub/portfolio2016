@@ -5,9 +5,9 @@
 
     <?php Chunk::get('about'); ?>
     
-    <?php Chunk::get('gallery'); ?>
-    
     <?php Chunk::get('contact'); ?>
+    
+    <?php Chunk::get('gallery'); ?>
 
 </div>
 

@@ -1,5 +1,5 @@
 $(document).ready(function(){
-		
+	
 	// nav toggle function
 
 	$(".menu_toggle_container").on("click",function(){
@@ -68,6 +68,25 @@ $(document).ready(function(){
 
 	// gallery
 
+	$('#galleryModal').on('show.bs.modal', function (event) {
+	  var button = $(event.relatedTarget); 
+	  var hero_url = button.find('.hero_url').text();
+	  var title = button.find('.title').text();
+	  var description = button.find('.description').text();
+	  var preview_url = button.find('.preview_url').text();
+	  
+	  var modal = $(this);
+	  modal.find('.modal-title').text('About ' + title);
+	  modal.find('.description').text(description);
+	  if(hero_url != null && hero_url != "") {
+		  modal.find('.hero').attr("alt",title);
+		  modal.find('.hero').attr("src",hero_url);
+	  } else {
+  		  modal.find('.hero').parent(".row").hide();
+	  }
+	  modal.find('.preview_btn').attr("href",preview_url);
+	})
+
 	// prepare the svg 
 	TweenMax.to($(".tile_overlay_path"), 0, {morphSVG:"#close"});
 
@@ -112,14 +131,31 @@ $(document).ready(function(){
 		$('#fullpage').fullpage({
 			menu: '.overlay_menu ul',
 			lockAnchors: true,
-	        anchors:['da-riddles', 'da-about', 'da-gallery'],
+	        anchors:['da-riddles', 'da-about', 'da-contact', 'da-gallery'],
 	        scrollingSpeed: 700,
 	        touchSensitivity: 15,
 			resize : true,
-			scrollOverflow: false,
-			responsiveWidth: 992,
-			responsiveHeight: 768,
+			responsiveWidth: 1025,
+			responsiveHeight: 770,
+			scrollOverflow: true,
 			fixedElements: '.navbar-fixed-top, footer',
+			normalScrollElements: '#gallery_carousel',
+			afterRender: function(){
+				var isResponsiveMode = $("body").hasClass("fp-responsive");
+
+			  	if (isResponsiveMode) {
+			  		//mobile code here
+
+				  	// full page setting
+				    $.fn.fullpage.setFitToSection(false);
+				    $.fn.fullpage.setAutoScrolling(false);
+	        	} else {
+	        		// full page setting
+				    $.fn.fullpage.setFitToSection(true);
+				    $.fn.fullpage.setAutoScrolling(true);
+
+	        	}
+	        }
 		});
 
 		$(".scroll_section_down").on("click",function(){
@@ -137,7 +173,7 @@ $(document).ready(function(){
 		});
 
 		$(".scroll_to_contact").on("click",function(){
-			$.fn.fullpage.moveTo(4);
+			$.fn.fullpage.moveTo(3);
 		});
 
 		
@@ -169,22 +205,19 @@ $(document).ready(function(){
 	  	
 	     onSiteInit();
 
-	  }, 250);
+	  }, 500);
 
 	});
 
 	function onSiteInit(){
+
 		var isResponsiveMode = $("body").hasClass("fp-responsive");
 
 	  	if (isResponsiveMode) {
 	  		//mobile code here
 
-		  	// full page setting
-		    $.fn.fullpage.setFitToSection(false);
-		    $.fn.fullpage.setAutoScrolling(false);
-
 		    // masonry setting
-		    $grid.masonry('destroy');
+		    $('.grid').masonry('destroy');
 
 		    myGallerySwiper = new Swiper ('#gallery_carousel', {
 		      speed: 700,
@@ -194,20 +227,21 @@ $(document).ready(function(){
 		      grabCursor: true,
 		    }); 
 
+		    $(".grid-item").unbind('mouseenter mouseleave');
+
 		} else {//desktop code here
 	  		
-			// full page setting
-		    $.fn.fullpage.setFitToSection(true);
-		    $.fn.fullpage.setAutoScrolling(true);
-
-		    // masonry setting
-		    myGallerySwiper.destroy(true, true);
-
-		    $('.grid').masonry({
+	  		$('.grid').masonry({
 				transitionDuration: '0.8s',
 				gutter: 30,
 				fitWidth: true
 			});
+
+		    // masonry setting
+		    if(myGallerySwiper != null){
+		    	myGallerySwiper.destroy(true, true);
+		    }		    
+		    
 
 			var tl = new TimelineMax();
 			var tl2 = new TimelineMax();
@@ -231,10 +265,9 @@ $(document).ready(function(){
 						.to(currentContent , 0.1, {alpha: 0})
 						.to(currentTileOverlayPath , 0.2, {morphSVG:"#close"})
 					;
-				}, 500);
+				}, 200);
 				
 			});
-
 
 		}
 	}
