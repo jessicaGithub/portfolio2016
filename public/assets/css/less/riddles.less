@@ -1,0 +1,107 @@
+
+#riddles {
+	background: url('@site_url/public/assets/img/welcome/symphony.png') repeat;
+	#riddles_carousel {
+		.swiper-wrapper {
+			.swiper-slide {
+				height: 500px;
+				overflow: auto;
+
+				.slide_content {
+				}
+
+				&.riddle {
+					.question {
+						h3 {
+							color: @jj_black;
+						}
+
+						h5 {
+							margin-bottom: 50px;
+						}
+
+						&.show_answer {
+							h3 {
+								color: @jj_pink;
+							}
+							.reveal_answer_btn {
+								background: transparent;
+							    padding: 0;
+							    font-size: 14px;
+							    color: @jj_lighter_grey;
+							}
+						}
+					}
+
+					.answer {
+						.opacity(0);
+						visibility: none;
+						margin-top: 20px;
+						&.show_answer {
+							.opacity(1);
+							visibility: visible;
+						}
+
+						// chalk riddle #1
+						#chalk_container {
+							width: 380px;
+							height: 260px;
+							display: block;
+							margin: 0 auto;
+							position: relative;
+
+							img, svg {
+								width: 100%;
+								height: 100%;
+								position: absolute;
+								top: 0;
+								left: 0;
+								z-index: 0;
+							}
+
+							svg {
+								width: 80%;
+								height: 80%;
+								z-index: 10;
+								top: 10%;
+								left: 10%;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.swiper-button-prev, .swiper-button-next {
+		background: transparent;
+		width: 50px;
+	    height: 50px;
+	    background: transparent;
+    	color: @jj_light_grey;
+    	font-size: 40px;
+    	.transition(color 0.25s ease);
+    	&:hover {
+    		color: @jj_dark_grey;
+    	}
+	}
+
+	h1 {
+		font-weight: 400;
+	}
+
+	h3 {
+		color: @jj_pink;
+	}
+
+	h1, h3 {
+		margin-bottom: 50px;
+	}
+
+	.scroll_down_cta {
+		margin-top: 150px;
+		a {
+			color: @jj_black;
+			i { font-size: 40px; }
+		}
+	}
+}

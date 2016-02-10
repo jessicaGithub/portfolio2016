@@ -1,0 +1,93 @@
+#gallery {
+	background: url('@site_url/public/assets/img/gallery/furley_bg.png') repeat;
+
+	/*masonry styles*/
+	.grid {
+		height: 100%;
+	}
+
+	.grid-item {
+		background: @jj_white;
+		border: 1px solid @jj_light_grey;
+		.box-shadow(5px 5px 0 0 @jj_light_grey);
+		float: left;
+		width: 330px;
+		height: 600px;
+		margin-bottom: 30px;
+		overflow: hidden;
+
+		.overlay {
+			position: absolute;
+			bottom: -1px;
+			left: 0;
+			height: 200px;
+			width: 100%;
+
+			.tile_overlay {
+
+			}
+
+			.overlay_content {
+				.opacity(0);
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				height: 140px;
+				width: 100%;
+				text-align: left;
+				padding: 20px;
+
+				a {
+					position: absolute;
+					top: -10px;
+
+					i {
+						font-size: 36px;
+						color: @jj_black;
+					}
+
+					&.popup {
+						right: 70px;
+					}
+
+					&.url {
+						right: 20px;
+					}
+				}
+			}
+		}
+	}
+
+	.grid-item--height1 { height: 330px; }
+
+	#gallery_content {
+		overflow: hidden; 	
+		padding: 150px 0;
+
+		.swiper-container {
+			position: relative;
+			.gallery-swiper-button-prev, .gallery-swiper-button-next {
+				background: transparent;
+				width: 50px;
+			    height: 50px;
+			    background: transparent;
+		    	color: @jj_light_grey;
+		    	font-size: 40px;
+		    	.transition(color 0.25s ease);
+		    	position: absolute;
+		    	top: 50%;
+		    	margin-top: -25px;
+		    	left: 0;
+		    	z-index: 99;
+		    	&:hover {
+		    		color: @jj_dark_grey;
+		    	}
+			}
+
+			.gallery-swiper-button-next {
+				left: auto;
+				right: 0;
+			}
+		}
+	}
+}

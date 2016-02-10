@@ -1,0 +1,36 @@
+
+
+#about {
+	background: @jj_green;
+
+	#particles-js {
+		position: absolute;
+	    height: 100%;
+	    width: 100%;
+	    top: 0;
+	    left: 0;
+	}
+
+	#about_content {
+		background: fade(@jj_green,80%);
+		.box-shadow(0 0 200px 0 @jj_green);
+		color: @jj_white;
+		padding: 50px 30px;
+
+		.profile_photo {
+			border-radius: 200px;
+		    overflow: hidden;
+		    width: 150px;
+		    height: 150px;
+		    margin: 0 auto 50px;
+		    img {
+		    	width: 100%;
+		    	height: auto;
+		    }
+		}
+
+		a {
+			margin-top: 50px;
+		}
+	}
+}

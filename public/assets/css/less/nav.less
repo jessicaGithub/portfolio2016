@@ -1,0 +1,134 @@
+
+
+
+
+.navbar-fixed-top {
+	border: 0;
+	background: fade(@jj_white, 50%);
+	.navbar-header {
+		float: none;
+
+		.navbar-brand {
+			width: 50px;
+			padding: 5px;
+			margin: 0 !important;
+
+			.logo {
+				fill: @jj_black;
+			}
+
+			&.menu_opened {
+				position: relative;
+				z-index: 9999;
+				top: 0;
+				left: 0;
+
+				.logo {
+					fill: @jj_white;
+				}
+			}
+		}
+
+		.menu_toggle_container {
+		    float: right;
+		    width: 50px;
+			margin: 0 !important;
+
+			.menu_toggle_lines {
+				stroke: @jj_black;
+				.transform(rotate(0deg) translateX(0px) translateY(0px));
+				.opacity(1);
+			}
+			&.menu_opened {
+				position: relative;
+				z-index: 9999;
+				top: 0;
+				right: 0;
+
+				.menu_toggle_lines {
+					stroke: @jj_white;
+				}
+				#menu_toggle_line_1 {
+					.transform(rotate(45deg) translateX(20px) translateY(-20px));
+				}
+				#menu_toggle_line_2 {
+					.opacity(0);
+				}
+				#menu_toggle_line_3 {
+					.transform(rotate(-45deg) translateX(-60px) translateY(0px));
+				}
+			}
+		}
+	}
+
+	.overlay_menu {
+		position: fixed;
+	    .opacity(0);
+		background: fade(@jj_pink, 90%);
+		left: 0;
+		top: -100%;
+		z-index: 999;
+		width: 100%;
+	    height: 100%;
+	    text-align: center;
+	    .transition(opacity 0.5s ease);
+
+	    ul {
+			width: 300px;
+    		height: 400px;
+			.absolute-center();
+	    	li {
+	    		a {
+		    		font-size: 48px;
+		    		line-height: 100px;
+		    		color: @jj_white;
+					font-family: @paragraph_font;
+		    		
+		    		&:hover {
+		    			color: @jj_yellow;
+		    		}
+		    	}
+	    		&.active a {
+	    			color: @jj_yellow;
+	    		}
+	    	}
+	    }
+
+	    &.menu_opened {
+	    	top: 0;
+	    	.opacity(1);
+	    }
+	}
+}
+
+footer {
+	.navbar-fixed-bottom();
+	background: fade(@jj_dark_grey, 70%);
+	color: @jj_white;
+	top: auto;
+	bottom: 0;
+	padding: 7px 0;
+	z-index: 999;
+
+	.left {
+		p { 
+			font-size: @font-size-h6; 
+			margin: 0;
+			line-height: 35px;
+		}
+	}
+	.right {
+		ul {
+			margin: 0;
+			li {
+				display: inline-block;
+				a {
+					img {
+						display: inline;
+						width: 35px;
+					}
+				}
+			}
+		}
+	}
+}

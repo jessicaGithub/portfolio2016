@@ -15,35 +15,28 @@ $(document).ready(function(){
 	      speed: 700,
 	      nextButton: '.swiper-button-next',
 	      prevButton: '.swiper-button-prev',
-	      // loop: true,
+	      loop: true,
 	      grabCursor: true,
-	      initialSlide: 1,
+	      // initialSlide: 1,
 	      touchEventsTarget: 'wrapper',
 	      onInit: afterCarousel
 	    });     
 
 		function afterCarousel(){
 
+			// var chalkTL = new TimelineMax();
+			// var chalkArray = [];
+			// for(var i = 1; i < 14; i++) {
+			// 	chalkArray.push("#chalk_path_" + i);
+			// }
+
 			$(".reveal_answer_btn").on("click",function(){
 		    	$(this).parent(".question").toggleClass("show_answer");
 		    	$(this).parent().next().toggleClass("show_answer");
 		    	$(this).html($(this).html() == 'reveal answer' ? 'hide answer' : 'reveal answer');
+
+		    	// chalkTL.staggerFromTo(chalkArray,0.5,{drawSVG:"0% 0%"},{drawSVG:"0% 100%"},0.1);
 		    });
-
-			$('#chalk_overlay').eraser({
-				size: 10,
-				completeRatio: .5,
-				progressFunction: function(p) {
-			        console.log(Math.round(p * 100) + '%');
-			    }
-	        });
-
-			// $("#resetBtn").on("click",function(){
-			// 	$("#overlay").eraser('reset');
-			// });
-
-
-			console.log("re");
 		}
 	    
 
@@ -54,11 +47,18 @@ $(document).ready(function(){
 	  console.log('callback - particles.js config loaded');
 	});
 
-	var movementStrength = 150;
+	var movementStrength = 50;
 	var height = movementStrength / $(window).height();
 	var width = movementStrength / $(window).width();
 
 	$("#particles-js").mousemove(function(e){
+		var pageX = e.pageX - ($(window).width() / 2);
+		var pageY = e.pageY - ($(window).height() / 2);
+		var newvalueX = width * pageX * -1 - 25;
+		var newvalueY = height * pageY * -1 - 50;
+	});
+
+	$("#about").mousemove(function(e){
 		var pageX = e.pageX - ($(window).width() / 2);
 		var pageY = e.pageY - ($(window).height() / 2);
 		var newvalueX = width * pageX * -1 - 25;
@@ -116,7 +116,10 @@ $(document).ready(function(){
 	        scrollingSpeed: 700,
 	        touchSensitivity: 15,
 			resize : true,
-			scrollOverflow: true
+			scrollOverflow: false,
+			responsiveWidth: 992,
+			responsiveHeight: 768,
+			fixedElements: '.navbar-fixed-top, footer',
 		});
 
 		$(".scroll_section_down").on("click",function(){
@@ -153,5 +156,87 @@ $(document).ready(function(){
 			$(this).prev("label").removeClass("push_up");
 		}
 	});
+
+	// Responsive
+
+	var resizeTimer,
+		myGallerySwiper;
+
+	$(window).on('load resize', function(e) {
+
+	  clearTimeout(resizeTimer);
+	  resizeTimer = setTimeout(function() {
+	  	
+	     onSiteInit();
+
+	  }, 250);
+
+	});
+
+	function onSiteInit(){
+		var isResponsiveMode = $("body").hasClass("fp-responsive");
+
+	  	if (isResponsiveMode) {
+	  		//mobile code here
+
+		  	// full page setting
+		    $.fn.fullpage.setFitToSection(false);
+		    $.fn.fullpage.setAutoScrolling(false);
+
+		    // masonry setting
+		    $grid.masonry('destroy');
+
+		    myGallerySwiper = new Swiper ('#gallery_carousel', {
+		      speed: 700,
+		      nextButton: '.gallery-swiper-button-next',
+		      prevButton: '.gallery-swiper-button-prev',
+		      loop: true,
+		      grabCursor: true,
+		    }); 
+
+		} else {//desktop code here
+	  		
+			// full page setting
+		    $.fn.fullpage.setFitToSection(true);
+		    $.fn.fullpage.setAutoScrolling(true);
+
+		    // masonry setting
+		    myGallerySwiper.destroy(true, true);
+
+		    $('.grid').masonry({
+				transitionDuration: '0.8s',
+				gutter: 30,
+				fitWidth: true
+			});
+
+			var tl = new TimelineMax();
+			var tl2 = new TimelineMax();
+
+			$(".grid-item").hover(function(){
+
+				var currentTileOverlayPath = $(this).find(".tile_overlay_path");
+				var currentContent = $(this).find(".overlay_content");
+				tl
+					.to(currentTileOverlayPath,0.2, {morphSVG:"#open"})
+					.to(currentContent,0.1, {alpha: 1})
+				;
+				
+			}, function(){
+
+				var currentTileOverlayPath = $(this).find(".tile_overlay_path");
+				var currentContent = $(this).find(".overlay_content");
+
+				setTimeout(function(){ 
+					tl2
+						.to(currentContent , 0.1, {alpha: 0})
+						.to(currentTileOverlayPath , 0.2, {morphSVG:"#close"})
+					;
+				}, 500);
+				
+			});
+
+
+		}
+	}
 });
 

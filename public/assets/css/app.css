@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/* VENDOR STUFF */
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -10705,39 +10706,9 @@ body {
         background-size: 240px 24px;
     }
 }*/
-#chalk_container {
-  width: 500px;
-  height: 500px;
-  overflow: hidden;
-  position: relative;
-  margin: 0 auto;
-}
-#chalkboard {
-  width: 319px;
-  height: 201px;
-  margin: 0 auto;
-  display: block;
-  position: absolute;
-  bottom: 56px;
-  left: 85px;
-  cursor: pointer;
-  z-index: 0;
-}
-#chalkboard img,
-#chalkboard canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-#chalkboard img#chalk_base,
-#chalkboard canvas#chalk_base {
-  z-index: 3;
-}
-#chalkboard img#chalk_overlay,
-#chalkboard canvas#chalk_overlay {
-  z-index: 999;
-}
+/* THEME */
 /* VARIABLES */
+/* GLOBAL */
 .absolute-center {
   position: absolute;
   top: 0;
@@ -10804,6 +10775,9 @@ a.active {
 .btn.green_btn {
   background: #b7d166;
   color: #101010;
+}
+.container-wide {
+  overflow: hidden;
 }
 .navbar-fixed-top {
   border: 0;
@@ -10958,6 +10932,10 @@ footer .right ul li a img {
 #riddles {
   background: url('@site_url/public/assets/img/welcome/symphony.png') repeat;
 }
+#riddles #riddles_carousel .swiper-wrapper .swiper-slide {
+  height: 500px;
+  overflow: auto;
+}
 #riddles #riddles_carousel .swiper-wrapper .swiper-slide.riddle .question h3 {
   color: #101010;
 }
@@ -10974,10 +10952,38 @@ footer .right ul li a img {
   color: #929292;
 }
 #riddles #riddles_carousel .swiper-wrapper .swiper-slide.riddle .answer {
-  display: block;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  visibility: none;
+  margin-top: 20px;
 }
 #riddles #riddles_carousel .swiper-wrapper .swiper-slide.riddle .answer.show_answer {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  visibility: visible;
+}
+#riddles #riddles_carousel .swiper-wrapper .swiper-slide.riddle .answer #chalk_container {
+  width: 380px;
+  height: 260px;
   display: block;
+  margin: 0 auto;
+  position: relative;
+}
+#riddles #riddles_carousel .swiper-wrapper .swiper-slide.riddle .answer #chalk_container img,
+#riddles #riddles_carousel .swiper-wrapper .swiper-slide.riddle .answer #chalk_container svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+#riddles #riddles_carousel .swiper-wrapper .swiper-slide.riddle .answer #chalk_container svg {
+  width: 80%;
+  height: 80%;
+  z-index: 10;
+  top: 10%;
+  left: 10%;
 }
 #riddles .swiper-button-prev,
 #riddles .swiper-button-next {
@@ -11045,13 +11051,14 @@ footer .right ul li a img {
   margin-top: 50px;
 }
 #gallery {
-  /*background: url('@site_url/public/assets/img/gallery/furley_bg.png') repeat;*/
+  background: url('@site_url/public/assets/img/gallery/furley_bg.png') repeat;
   /*masonry styles*/
 }
 #gallery .grid {
   height: 100%;
 }
 #gallery .grid-item {
+  background: #ffffff;
   border: 1px solid #d6d6d6;
   -webkit-box-shadow: 5px 5px 0 0 #d6d6d6;
   box-shadow: 5px 5px 0 0 #d6d6d6;
@@ -11099,6 +11106,33 @@ footer .right ul li a img {
 #gallery #gallery_content {
   overflow: hidden;
   padding: 150px 0;
+}
+#gallery #gallery_content .swiper-container {
+  position: relative;
+}
+#gallery #gallery_content .swiper-container .gallery-swiper-button-prev,
+#gallery #gallery_content .swiper-container .gallery-swiper-button-next {
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  color: #d6d6d6;
+  font-size: 40px;
+  -webkit-transition: color 0.25s ease;
+  -o-transition: color 0.25s ease;
+  transition: color 0.25s ease;
+  position: absolute;
+  top: 50%;
+  margin-top: -25px;
+  left: 0;
+  z-index: 99;
+}
+#gallery #gallery_content .swiper-container .gallery-swiper-button-prev:hover,
+#gallery #gallery_content .swiper-container .gallery-swiper-button-next:hover {
+  color: #453d3d;
+}
+#gallery #gallery_content .swiper-container .gallery-swiper-button-next {
+  left: auto;
+  right: 0;
 }
 #contact {
   background: #ec6345;
@@ -11148,4 +11182,86 @@ footer .right ul li a img {
   border: 0;
   border-bottom: 3px solid white;
   box-shadow: none;
+}
+/* RESPONSIVE */
+@media (min-width: 0px) {
+  footer {
+    position: relative;
+    margin-top: -1px;
+  }
+  footer .left,
+  footer .right {
+    float: none !important;
+    margin: 20px auto;
+  }
+  footer .left p,
+  footer .right p {
+    line-height: 1.3;
+  }
+  #riddles #riddles_carousel .swiper-wrapper .swiper-slide {
+    height: auto;
+  }
+  #gallery .grid-item {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    float: none;
+    margin-bottom: 0;
+  }
+  #gallery .grid-item .overlay {
+    height: 200px;
+    background: #fff15d;
+  }
+  #gallery .grid-item .overlay .tile_overlay {
+    display: none;
+  }
+  #gallery .grid-item .overlay .overlay_content {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+  #gallery .grid-item--height1 {
+    height: 600px;
+  }
+  #gallery #gallery_content {
+    padding-top: 0;
+  }
+}
+@media (min-width: 768px) {
+  footer {
+    position: fixed;
+    margin-top: 0;
+  }
+  footer .left,
+  footer .right {
+    float: left !important;
+    margin: 0;
+  }
+  footer .left p,
+  footer .right p {
+    line-height: 35px;
+  }
+  footer .right {
+    float: right !important;
+  }
+  #gallery .grid-item {
+    -webkit-box-shadow: 5px 5px 0 0 #d6d6d6;
+    box-shadow: 5px 5px 0 0 #d6d6d6;
+    float: left;
+    margin-bottom: 30px;
+  }
+  #gallery .grid-item .overlay {
+    background: transparent;
+  }
+  #gallery .grid-item .overlay .tile_overlay {
+    display: block;
+  }
+  #gallery .grid-item .overlay .overlay_content {
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+  #gallery .grid-item--height1 {
+    height: 330px;
+  }
+  #gallery #gallery_content {
+    padding-top: 150px;
+  }
 }

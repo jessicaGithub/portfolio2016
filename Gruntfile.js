@@ -21,6 +21,7 @@ module.exports = function(grunt) {
                     './public/assets/js/vendor/TweenMax.min.js',
                     './public/assets/js/vendor/TimelineMax.min.js',
                     './public/assets/js/vendor/TextPlugin.min.js',
+                    './public/assets/js/vendor/DrawSVGPlugin.min.js',
                     './public/assets/js/vendor/MorphSVGPlugin.min.js',
                     './public/assets/js/vendor/bootstrap.min.js',
                     './public/assets/js/vendor/jquery.chocolat.js',
