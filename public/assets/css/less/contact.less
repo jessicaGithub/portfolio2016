@@ -33,7 +33,7 @@
 			}
 		}
 
-		input, textarea {
+		input[type="text"], input[type="email"], textarea {
 			position: relative;
 			z-index: 2;
 			height: auto;
@@ -49,5 +49,26 @@
 		    border-bottom: 3px solid white;		    
 		    box-shadow: none;
 		}
+
+		#epi {
+	    	float: right;
+	    }
+
+		h5 { text-align: left; }
 	}
+}
+
+#epicaptcha {
+	margin-bottom: 0;
+	display: block;
+    float: left;
+
+    
+}
+
+#epicaptcha_message {
+    line-height: 1.3;
+    font-size: 14px;
+    padding: 10px 0;
+    color: @jj_white !important;
 }

@@ -72,15 +72,17 @@ $(document).ready(function(){
 	  var button = $(event.relatedTarget); 
 	  var hero_url = button.find('.hero_url').text();
 	  var title = button.find('.title').text();
+	  var tags = button.find('.tags').text();
 	  var description = button.find('.description').text();
 	  var preview_url = button.find('.preview_url').text();
 	  
 	  var modal = $(this);
 	  modal.find('.modal-title').text('About ' + title);
 	  modal.find('.description').text(description);
+	  modal.find('.tags').text(tags);
 	  if(hero_url != null && hero_url != "") {
-		  modal.find('.hero').attr("alt",title);
-		  modal.find('.hero').attr("src",hero_url);
+		  modal.find('.hero > img').attr("alt",title);
+		  modal.find('.hero> img').attr("src",hero_url);
 	  } else {
   		  modal.find('.hero').parent(".row").hide();
 	  }
@@ -139,7 +141,7 @@ $(document).ready(function(){
 			responsiveHeight: 770,
 			scrollOverflow: true,
 			fixedElements: '.navbar-fixed-top, footer',
-			normalScrollElements: '#gallery_carousel',
+			normalScrollElements: '#gallery_carousel,.navbar-fixed-top,.gallery_modal_container,.modal-backdrop',
 			afterRender: function(){
 				var isResponsiveMode = $("body").hasClass("fp-responsive");
 
@@ -193,6 +195,14 @@ $(document).ready(function(){
 		}
 	});
 
+	////epicaptcha div////
+	$("#epicaptcha").Epicaptcha( {
+		theme: 'greyscale',
+	   buttonID: "epi", // the id of the form button
+	   theFormID: "contact-form", // the id of the form tag    
+	   submitUrl: "public/assets/js/vendor/EpiCaptcha/epicaptcha.php",               
+	});
+
 	// Responsive
 
 	var resizeTimer,
@@ -216,6 +226,12 @@ $(document).ready(function(){
 	  	if (isResponsiveMode) {
 	  		//mobile code here
 
+	  		$.fn.fullpage.destroy('all');
+
+	  		var sa = $(".scrollarea"); sa.slimScroll({destroy:true}); sa.slimScroll({height:'900px'});
+
+	  		$(".slimScrollDiv, .fp-section, .fp-tableCell").attr("style","");
+
 		    // masonry setting
 		    $('.grid').masonry('destroy');
 
@@ -230,6 +246,9 @@ $(document).ready(function(){
 		    $(".grid-item").unbind('mouseenter mouseleave');
 
 		} else {//desktop code here
+
+			$.fn.fullpage.setFitToSection(true);
+	  		$.fn.fullpage.setAutoScrolling(true);
 	  		
 	  		$('.grid').masonry({
 				transitionDuration: '0.8s',

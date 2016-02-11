@@ -34,7 +34,14 @@
 <div class="modal-body">
 <div class="row">
 <div class="col-md-12">
-<img src="" class="hero" alt="">
+<h5 class="tags"></h5>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="hero">
+<img src="" alt="">
+</div>
 </div>
 </div>
 <div class="row">
@@ -42,7 +49,7 @@
 <p class="description"></p>
 </div>
 <div class="col-md-6">
-<a href="" class="btn green_btn preview_btn">Go to Site</a>
+<a href="" target="_blank" class="btn green_btn preview_btn">Go to Site</a>
 </div>
 </div>
 </div>
@@ -54,5 +61,28 @@
 <?php Javascript::add('public/assets/js/vendor.js', 'frontend', 1); ?>
 <?php Javascript::add('public/assets/js/app.js', 'frontend', 2); ?>
 <?php Javascript::load(); ?>
+<?php /*
+<div class="loading"></div>
+<style rel="stylesheet">
+.loading{
+background: url('https://dl.dropbox.com/u/23834858/fotos/loading.gif') no-repeat center center rgba(51, 51, 51, 0.82);
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+margin: 0 auto;
+display: block;
+z-index: 10000;
+}
+</style>
+<script type="text/javascript">
+$(window).load(function(){
+$('.loading').delay(2000).fadeOut(1000, function(){
+$(this).remove();
+});
+});
+</script>
+*/ ?>
 </body>
 </html>
