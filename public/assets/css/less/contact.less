@@ -2,6 +2,7 @@
 #contact {
 	background: @jj_pink;
 	color: @jj_white;
+	position: relative;
 
 	form {
 		margin-top: 130px;
@@ -56,6 +57,30 @@
 
 		h5 { text-align: left; }
 	}
+}
+
+#plane_container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	#plane_route_svg, #route_base {
+		position: absolute;
+		top: 150px;
+		left: 0;
+		width: 100%;
+	}
+
+	#plane {
+		position: absolute;
+		top: 10%;
+    	left: 0%;
+		width: 70%;
+		height: auto;
+	}
+
 }
 
 #epicaptcha {

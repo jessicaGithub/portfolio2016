@@ -1,4 +1,6 @@
 $(document).ready(function(){
+
+	var initialLoad = true;
 	
 	// nav toggle function
 
@@ -24,46 +26,14 @@ $(document).ready(function(){
 
 		function afterCarousel(){
 
-			// var chalkTL = new TimelineMax();
-			// var chalkArray = [];
-			// for(var i = 1; i < 14; i++) {
-			// 	chalkArray.push("#chalk_path_" + i);
-			// }
-
 			$(".reveal_answer_btn").on("click",function(){
 		    	$(this).parent(".question").toggleClass("show_answer");
 		    	$(this).parent().next().toggleClass("show_answer");
 		    	$(this).html($(this).html() == 'reveal answer' ? 'hide answer' : 'reveal answer');
-
-		    	// chalkTL.staggerFromTo(chalkArray,0.5,{drawSVG:"0% 0%"},{drawSVG:"0% 100%"},0.1);
 		    });
 		}
 	    
 
-	});
-
-	// about
-	particlesJS.load('particles-js', 'public/assets/js/vendor/particles.json', function() {
-	  console.log('callback - particles.js config loaded');
-	});
-
-	var movementStrength = 50;
-	var height = movementStrength / $(window).height();
-	var width = movementStrength / $(window).width();
-
-	$("#particles-js").mousemove(function(e){
-		var pageX = e.pageX - ($(window).width() / 2);
-		var pageY = e.pageY - ($(window).height() / 2);
-		var newvalueX = width * pageX * -1 - 25;
-		var newvalueY = height * pageY * -1 - 50;
-	});
-
-	$("#about").mousemove(function(e){
-		var pageX = e.pageX - ($(window).width() / 2);
-		var pageY = e.pageY - ($(window).height() / 2);
-		var newvalueX = width * pageX * -1 - 25;
-		var newvalueY = height * pageY * -1 - 50;
-		$('#particles-js').css({"left": newvalueX + "px", "top": newvalueY +"px"});
 	});
 
 	// gallery
@@ -92,82 +62,156 @@ $(document).ready(function(){
 	// prepare the svg 
 	TweenMax.to($(".tile_overlay_path"), 0, {morphSVG:"#close"});
 
-	var $grid = $('.grid').imagesLoaded( function() {
-		// init after all images have loaded
-		
-		$grid.masonry({
-			transitionDuration: '0.8s',
-			gutter: 30,
-			fitWidth: true
-		});
+	var isResponsiveMode = $(".container").width() <= 750;
 
+  	if (isResponsiveMode) {
 
-		var tl = new TimelineMax();
-		var tl2 = new TimelineMax();
+  		myGallerySwiper = new Swiper ('#gallery_carousel', {
+			speed: 700,
+			nextButton: '.gallery-swiper-button-next',
+			prevButton: '.gallery-swiper-button-prev',
+			loop: true,
+			grabCursor: true,
+		}); 
 
-		$(".grid-item").hover(function(){
-
-			var currentTileOverlayPath = $(this).find(".tile_overlay_path");
-			var currentContent = $(this).find(".overlay_content");
-			tl
-				.to(currentTileOverlayPath,0.2, {morphSVG:"#open"})
-				.to(currentContent,0.1, {alpha: 1})
-			;
+  	}
+  	else {
+  		var $grid = $('.grid').imagesLoaded( function() {
+			// init after all images have loaded
 			
-		}, function(){
+			$grid.masonry({
+				transitionDuration: '0.8s',
+				gutter: 30,
+				fitWidth: true
+			});
 
-			var currentTileOverlayPath = $(this).find(".tile_overlay_path");
-			var currentContent = $(this).find(".overlay_content");
 
-			setTimeout(function(){ 
-				tl2
-					.to(currentContent , 0.1, {alpha: 0})
-					.to(currentTileOverlayPath , 0.2, {morphSVG:"#close"})
+			var tl = new TimelineMax();
+			var tl2 = new TimelineMax();
+
+			$(".grid-item").hover(function(){
+
+				var currentTileOverlayPath = $(this).find(".tile_overlay_path");
+				var currentContent = $(this).find(".overlay_content");
+				tl
+					.to(currentTileOverlayPath,0.2, {morphSVG:"#open"})
+					.to(currentContent,0.1, {alpha: 1})
 				;
-			}, 500);
-			
+				
+			}, function(){
+
+				var currentTileOverlayPath = $(this).find(".tile_overlay_path");
+				var currentContent = $(this).find(".overlay_content");
+
+				setTimeout(function(){ 
+					tl2
+						.to(currentContent , 0.1, {alpha: 0})
+						.to(currentTileOverlayPath , 0.2, {morphSVG:"#close"})
+					;
+				}, 500);
+				
+			});
+
+			// fullpage JS init after images are all loaded
+
+			$('#fullpage').fullpage({
+				menu: '.overlay_menu ul',
+				lockAnchors: true,
+		        scrollingSpeed: 700,
+		        touchSensitivity: 15,
+		        animateAnchor: true,
+				resize : true,
+				responsiveWidth: 1025,
+				responsiveHeight: 770,
+				scrollOverflow: true,
+				fixedElements: '.navbar-fixed-top, footer',
+				normalScrollElements: '#gallery_carousel,.navbar-fixed-top,.gallery_modal_container,.modal-backdrop',
+				afterRender: function(){
+					var isResponsiveMode = $("body").hasClass("fp-responsive");
+
+				  	if (isResponsiveMode) {
+				  		//mobile code here
+
+					  	// full page setting
+					    $.fn.fullpage.setFitToSection(false);
+					    $.fn.fullpage.setAutoScrolling(false);
+					    
+		        	} else {
+		        		// full page setting
+					    $.fn.fullpage.setFitToSection(true);
+					    $.fn.fullpage.setAutoScrolling(true);
+
+					    // about
+						particlesJS.load('particles-js', 'public/assets/js/vendor/particles.json', function() {
+						  console.log('callback - particles.js config loaded');
+						});
+
+						var movementStrength = 50;
+						var height = movementStrength / $(window).height();
+						var width = movementStrength / $(window).width();
+
+						$("#particles-js").mousemove(function(e){
+							var pageX = e.pageX - ($(window).width() / 2);
+							var pageY = e.pageY - ($(window).height() / 2);
+							var newvalueX = width * pageX * -1 - 25;
+							var newvalueY = height * pageY * -1 - 50;
+						});
+
+						$("#about").mousemove(function(e){
+							var pageX = e.pageX - ($(window).width() / 2);
+							var pageY = e.pageY - ($(window).height() / 2);
+							var newvalueX = width * pageX * -1 - 25;
+							var newvalueY = height * pageY * -1 - 50;
+							$('#particles-js').css({"left": newvalueX + "px", "top": newvalueY +"px"});
+						});
+
+		        	}
+		        },
+		        afterLoad: function(anchorLink, index){
+		        	console.log("anchorLink: " + anchorLink + " and index: " + index );
+		        	if(initialLoad){
+		        		initialLoad = false;
+		        	} else {
+		        		ChangeUrl(anchorLink, "#" + anchorLink);
+		        	}		        	
+		        }
+			})
 		});
-
-		// fullpage JS init after images are all loaded
-
-		$('#fullpage').fullpage({
-			menu: '.overlay_menu ul',
-			lockAnchors: true,
-	        anchors:['da-riddles', 'da-about', 'da-contact', 'da-gallery'],
-	        scrollingSpeed: 700,
-	        touchSensitivity: 15,
-			resize : true,
-			responsiveWidth: 1025,
-			responsiveHeight: 770,
-			scrollOverflow: true,
-			fixedElements: '.navbar-fixed-top, footer',
-			normalScrollElements: '#gallery_carousel,.navbar-fixed-top,.gallery_modal_container,.modal-backdrop',
-			afterRender: function(){
-				var isResponsiveMode = $("body").hasClass("fp-responsive");
-
-			  	if (isResponsiveMode) {
-			  		//mobile code here
-
-				  	// full page setting
-				    $.fn.fullpage.setFitToSection(false);
-				    $.fn.fullpage.setAutoScrolling(false);
-	        	} else {
-	        		// full page setting
-				    $.fn.fullpage.setFitToSection(true);
-				    $.fn.fullpage.setAutoScrolling(true);
-
-	        	}
-	        }
-		});
+  	}
+		function ChangeUrl(title, url) {
+		    if (typeof (history.pushState) != "undefined") {
+		        var obj = { Title: title, Url: url };
+		        history.pushState(obj, obj.Title, obj.Url);
+		    } else {
+		        alert("Browser does not support HTML5.");
+		    }
+		}
 
 		$(".scroll_section_down").on("click",function(){
-			$.fn.fullpage.moveSectionDown();
+			var isResponsiveMode = $(".container").width() <= 750;
+
+		  	if (isResponsiveMode) {
+		  		$('html, body').animate({
+			        scrollTop: $("#about").offset().top
+			    }, 1000);
+		  	}
+		  	else {
+		  		$.fn.fullpage.moveSectionDown();
+		  	}
 		});
 
 		$(".overlay_menu ul li a").on("click",function(e){
 			e.preventDefault();
-			var sectionNumber = $(this).parent().index() + 1;
-			$.fn.fullpage.moveTo(sectionNumber);
+			if (isResponsiveMode) {
+				var target = $(this).attr("href").replace("da-","");
+		  		$('html, body').animate({
+			        scrollTop: $(target).offset().top
+			    }, 1000);
+		  	}
+		  	else {
+				var sectionNumber = $(this).parent().index() + 1;
+				$.fn.fullpage.moveTo(sectionNumber);
+			}
 			$(".menu_toggle_container").toggleClass("menu_opened");
 			$(".navbar-brand").toggleClass("menu_opened");
 			$(".overlay_menu").removeClass("menu_opened");
@@ -175,13 +219,17 @@ $(document).ready(function(){
 		});
 
 		$(".scroll_to_contact").on("click",function(){
-			$.fn.fullpage.moveTo(3);
+			if (isResponsiveMode) {
+		  		$('html, body').animate({
+			        scrollTop: $("#contact").offset().top
+			    }, 1000);
+		  	}
+		  	else {
+				$.fn.fullpage.moveTo(3);
+			}
 		});
 
-		
-	});
-
-	// form
+	// contact
 
 	$("#name, #message, #email").on("keypress focusout",function() {
 		var currentVal = $(this).val();
@@ -208,87 +256,16 @@ $(document).ready(function(){
 	var resizeTimer,
 		myGallerySwiper;
 
-	$(window).on('load resize', function(e) {
+	$(window).on('resize', function(e) {
 
 	  clearTimeout(resizeTimer);
 	  resizeTimer = setTimeout(function() {
-	  	
-	     onSiteInit();
+	  		
+	  	location.reload();
 
-	  }, 500);
+	  }, 100);
 
 	});
 
-	function onSiteInit(){
-
-		var isResponsiveMode = $("body").hasClass("fp-responsive");
-
-	  	if (isResponsiveMode) {
-	  		//mobile code here
-
-	  		$.fn.fullpage.destroy('all');
-
-	  		var sa = $(".scrollarea"); sa.slimScroll({destroy:true}); sa.slimScroll({height:'900px'});
-
-	  		$(".slimScrollDiv, .fp-section, .fp-tableCell").attr("style","");
-
-		    // masonry setting
-		    $('.grid').masonry('destroy');
-
-		    myGallerySwiper = new Swiper ('#gallery_carousel', {
-		      speed: 700,
-		      nextButton: '.gallery-swiper-button-next',
-		      prevButton: '.gallery-swiper-button-prev',
-		      loop: true,
-		      grabCursor: true,
-		    }); 
-
-		    $(".grid-item").unbind('mouseenter mouseleave');
-
-		} else {//desktop code here
-
-			$.fn.fullpage.setFitToSection(true);
-	  		$.fn.fullpage.setAutoScrolling(true);
-	  		
-	  		$('.grid').masonry({
-				transitionDuration: '0.8s',
-				gutter: 30,
-				fitWidth: true
-			});
-
-		    // masonry setting
-		    if(myGallerySwiper != null){
-		    	myGallerySwiper.destroy(true, true);
-		    }		    
-		    
-
-			var tl = new TimelineMax();
-			var tl2 = new TimelineMax();
-
-			$(".grid-item").hover(function(){
-
-				var currentTileOverlayPath = $(this).find(".tile_overlay_path");
-				var currentContent = $(this).find(".overlay_content");
-				tl
-					.to(currentTileOverlayPath,0.2, {morphSVG:"#open"})
-					.to(currentContent,0.1, {alpha: 1})
-				;
-				
-			}, function(){
-
-				var currentTileOverlayPath = $(this).find(".tile_overlay_path");
-				var currentContent = $(this).find(".overlay_content");
-
-				setTimeout(function(){ 
-					tl2
-						.to(currentContent , 0.1, {alpha: 0})
-						.to(currentTileOverlayPath , 0.2, {morphSVG:"#close"})
-					;
-				}, 200);
-				
-			});
-
-		}
-	}
 });
 

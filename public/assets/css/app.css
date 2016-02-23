@@ -11531,10 +11531,10 @@ footer .right ul li a img {
 }
 #about #particles-js {
   position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
+  height: 150%;
+  width: 150%;
+  top: -20%;
+  left: -20%;
 }
 #about #about_content {
   background: rgba(183, 209, 102, 0.8);
@@ -11571,7 +11571,7 @@ footer .right ul li a img {
   box-shadow: 5px 5px 0 0 #d6d6d6;
   float: left;
   width: 330px;
-  height: 600px;
+  height: 598px;
   margin-bottom: 30px;
   overflow: hidden;
 }
@@ -11698,6 +11698,7 @@ footer .right ul li a img {
   overflow: auto;
   display: block;
   margin: 20px auto;
+  border: 1px solid #d6d6d6;
 }
 .gallery_modal_container .modal .modal-dialog .modal-content .modal-body .hero img {
   display: block;
@@ -11720,6 +11721,7 @@ footer .right ul li a img {
 #contact {
   background: #ec6345;
   color: #ffffff;
+  position: relative;
 }
 #contact form {
   margin-top: 130px;
@@ -11773,6 +11775,27 @@ footer .right ul li a img {
 #contact .form-group h5 {
   text-align: left;
 }
+#plane_container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#plane_container #plane_route_svg,
+#plane_container #route_base {
+  position: absolute;
+  top: 150px;
+  left: 0;
+  width: 100%;
+}
+#plane_container #plane {
+  position: absolute;
+  top: 10%;
+  left: 0%;
+  width: 70%;
+  height: auto;
+}
 #epicaptcha {
   margin-bottom: 0;
   display: block;
@@ -11786,6 +11809,9 @@ footer .right ul li a img {
 }
 /* RESPONSIVE */
 @media (min-width: 0px) {
+  .container-wide {
+    padding: 50px 0;
+  }
   footer {
     position: relative;
     margin-top: -1px;
@@ -11802,6 +11828,13 @@ footer .right ul li a img {
   #riddles #riddles_carousel .swiper-wrapper .swiper-slide {
     height: auto;
   }
+  #riddles #riddles_carousel .swiper-wrapper .swiper-slide.riddle {
+    padding-top: 50px;
+  }
+  #riddles #riddles_carousel .swiper-wrapper .swiper-slide.riddle .answer #chalk_container {
+    width: 280px;
+    height: 192px;
+  }
   #gallery .grid-item {
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -11810,7 +11843,7 @@ footer .right ul li a img {
   }
   #gallery .grid-item .overlay {
     height: 200px;
-    background: #fff15d;
+    background: #ffffff;
   }
   #gallery .grid-item .overlay .tile_overlay {
     display: none;
@@ -11829,6 +11862,14 @@ footer .right ul li a img {
   #gallery #gallery_content .swiper-container .gallery-swiper-button-next {
     display: block;
   }
+  #about {
+    overflow: hidden;
+    position: relative;
+  }
+  #epicaptcha {
+    float: none;
+    margin: 0 0 50px;
+  }
 }
 @media (min-width: 768px) {
   footer {
@@ -11846,6 +11887,18 @@ footer .right ul li a img {
   }
   footer .right {
     float: right !important;
+  }
+}
+@media (min-width: 992px) {
+  .container-wide {
+    padding: 0;
+  }
+  #riddles #riddles_carousel .swiper-wrapper .swiper-slide.riddle {
+    padding-top: 0px;
+  }
+  #epicaptcha {
+    float: left;
+    margin-bottom: 0;
   }
 }
 @media (min-width: 1025px) {

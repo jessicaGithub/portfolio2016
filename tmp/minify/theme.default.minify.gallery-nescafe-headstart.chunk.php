@@ -2,7 +2,7 @@
 <div class="overlay">
 <svg version="1.1" class="tile_overlay" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 viewBox="0 0 330 200" style="enable-background:new 0 0 330 200;" xml:space="preserve">
-<style>.tile_overlay_path {fill: #FFF15D;}</style>
+<style>.tile_overlay_path {fill: #FFFFFF;}</style>
 <path class="tile_overlay_path" d="M490.1,280.649c0,44.459-36.041,80.5-80.5,80.5s-80.5-36.041-80.5-80.5s36.041-80.5,80.5-80.5
 S490.1,236.19,490.1,280.649z"/>
 </svg>

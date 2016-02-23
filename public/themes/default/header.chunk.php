@@ -35,24 +35,25 @@
     <![endif]-->
 
     <!-- Fav-icons -->
-    <link rel="icon" href="<?php echo Site::url(); ?>/public/assets/img/favicon/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="<?php echo Site::url(); ?>/public/assets/img/favicon/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="57x57" href="<?php echo Site::url(); ?>/public/assets/img/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="<?php echo Site::url(); ?>/public/assets/img/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo Site::url(); ?>/public/assets/img/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="<?php echo Site::url(); ?>/public/assets/img/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="<?php echo Site::url(); ?>/public/assets/img/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo Site::url(); ?>/public/assets/img/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="<?php echo Site::url(); ?>/public/assets/img/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="<?php echo Site::url(); ?>/public/assets/img/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo Site::url(); ?>/public/assets/img/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="<?php echo Site::url(); ?>/public/assets/img/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo Site::url(); ?>/public/assets/img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="<?php echo Site::url(); ?>/public/assets/img/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo Site::url(); ?>/public/assets/img/favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="<?php echo Site::url(); ?>/favicon.ico?v=2" />
+    <link rel="icon" href="<?php echo Site::url(); ?>/public/assets/img/favicon/favicon.ico?V=1" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo Site::url(); ?>/public/assets/img/favicon/favicon.ico?V=1" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="<?php echo Site::url(); ?>/public/assets/img/favicon/apple-icon-57x57.png?V=1">
+    <link rel="apple-touch-icon" sizes="60x60" href="<?php echo Site::url(); ?>/public/assets/img/favicon/apple-icon-60x60.png?V=1">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo Site::url(); ?>/public/assets/img/favicon/apple-icon-72x72.png?V=1">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?php echo Site::url(); ?>/public/assets/img/favicon/apple-icon-76x76.png?V=1">
+    <link rel="apple-touch-icon" sizes="114x114" href="<?php echo Site::url(); ?>/public/assets/img/favicon/apple-icon-114x114.png?V=1">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo Site::url(); ?>/public/assets/img/favicon/apple-icon-120x120.png?V=1">
+    <link rel="apple-touch-icon" sizes="144x144" href="<?php echo Site::url(); ?>/public/assets/img/favicon/apple-icon-144x144.png?V=1">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?php echo Site::url(); ?>/public/assets/img/favicon/apple-icon-152x152.png?V=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo Site::url(); ?>/public/assets/img/favicon/apple-icon-180x180.png?V=1">
+    <link rel="icon" type="image/png" sizes="192x192"  href="<?php echo Site::url(); ?>/public/assets/img/favicon/android-icon-192x192.png?V=1">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo Site::url(); ?>/public/assets/img/favicon/favicon-32x32.png?V=1">
+    <link rel="icon" type="image/png" sizes="96x96" href="<?php echo Site::url(); ?>/public/assets/img/favicon/favicon-96x96.png?V=1">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo Site::url(); ?>/public/assets/img/favicon/favicon-16x16.png?V=1">
     <link rel="manifest" href="<?php echo Site::url(); ?>/public/assets/img/favicon/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="<?php echo Site::url(); ?>/public/assets/img/favicon/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="<?php echo Site::url(); ?>/public/assets/img/favicon/ms-icon-144x144.png?V=1">
     <meta name="theme-color" content="#ffffff">
   </head>
 
@@ -86,7 +87,7 @@
           </a>
         </div>
         <div class="overlay_menu">
-          <ul>
+          <ul id="overlay_menu_list">
               <?php //echo Menu::get(); ?>
               <?php //Users::getPanel(); ?>
               <li class="active" data-menuanchor="da-riddles"><a href="#da-riddles">Riddles</a></li>

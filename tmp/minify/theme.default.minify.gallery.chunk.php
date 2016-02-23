@@ -16,6 +16,11 @@ viewBox="0 0 330 200" style="enable-background:new 0 0 330 200;" xml:space="pres
 <div class="grid swiper-wrapper">
 <?php Chunk::get('gallery-nescafe-headstart'); ?>
 <?php Chunk::get('gallery-maggi'); ?>
+<?php Chunk::get('gallery-actwild'); ?>
+<?php Chunk::get('gallery-beneful'); ?>
+<?php Chunk::get('gallery-lumanetix'); ?>
+<?php Chunk::get('gallery-carnation'); ?>
+<?php Chunk::get('gallery-uncletobys'); ?>
 </div>
 </div>
 </div>

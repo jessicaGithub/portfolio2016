@@ -1,4 +1,7 @@
 <div class="container-wide section" id="contact" data-anchor="da-contact">
+    <div id="plane_container">
+        <img src="<?php echo Site::url(); ?>/public/assets/img/contact/plane_bg.png" id="plane">
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-xs-12" id="contact_content">

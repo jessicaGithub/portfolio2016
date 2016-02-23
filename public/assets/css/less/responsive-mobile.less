@@ -1,4 +1,9 @@
 @media (min-width: 0px) {
+
+	.container-wide {
+		padding: 50px 0;
+	}
+
 	footer {
 		position: relative;
 		margin-top: -1px;
@@ -15,7 +20,17 @@
 
 	#riddles #riddles_carousel .swiper-wrapper .swiper-slide {
 		height: auto;
+
+		&.riddle {
+		    padding-top: 50px;
+
+			.answer #chalk_container {
+			    width: 280px;
+			    height: 192px;
+			}
+		}
 	}
+
 
 	#gallery {
 	
@@ -26,7 +41,7 @@
 
 			.overlay {
 				height: 200px;
-				background: @jj_yellow;
+				background: @jj_white;
 				
 				.tile_overlay {
 					display: none;
@@ -49,6 +64,16 @@
 				}
 			}
 		}
+	}
+
+	#about {
+		overflow: hidden;
+		position: relative;
+	}
+
+	#epicaptcha {
+		float: none;
+		margin: 0 0 50px;
 	}
 
 }

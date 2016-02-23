@@ -21,6 +21,11 @@
                         
                         <?php Chunk::get('gallery-nescafe-headstart'); ?>
                         <?php Chunk::get('gallery-maggi'); ?>
+                        <?php Chunk::get('gallery-actwild'); ?>
+                        <?php Chunk::get('gallery-beneful'); ?>
+                        <?php Chunk::get('gallery-lumanetix'); ?>
+                        <?php Chunk::get('gallery-carnation'); ?>
+                        <?php Chunk::get('gallery-uncletobys'); ?>
                         
                     </div>
                 </div>
